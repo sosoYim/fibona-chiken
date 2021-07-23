@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chicken</title>
+  </head>
+  <body>
+    <h1>피보나치킨</h1>
+    <h2>자애로운 자여, 몇 명이나 먹이려고 하는고?</h2>
+
+    <input type="number" id="num" placeholder="몇 명?">
+    <button type="button" id="result">결과</button>
+
+    <div class="print" id="print"></div>
+    <img src="" alt="" />
+
+    <script>
+      function fibonacci(num) {
+        if(num < 2) return num;
+        return fibonacci(num-1) + fibonacci(num-2);
+      }
+      
+      function changeInnerHTMLText(id, text) {
+        const element = document.getElementById(id);
+        if(text){
+          element.innerText = text;
+        }
+      }
+
+      function putResult(id, num) {
+        const result = fibonacci(num);
+        changeInnerHTMLText(id, num);
+      }
+
+      
+
+      document.getElementById("result").addEventListener("click", function(){
+        const id = "print";
+        const num = document.getElementById("num").value;
+        const result = fibonacci(num);
+        changeInnerHTMLText(id, num);
+      });
+    </script>
+  </body>
+</html>
